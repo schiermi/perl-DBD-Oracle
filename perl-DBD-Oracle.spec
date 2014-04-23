@@ -10,7 +10,7 @@ Url: http://www.cpan.org
 BuildRoot: %{_tmppath}/perl-DBD-Oracle-buildroot/
 BuildRequires: perl >= 0:5.6.1, perl(DBI)
 BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: oracle-instantclient11.2-devel
+BuildRequires: oracle-instantclient12.1-devel
 Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 # the version requires is not automatically picked up
 Requires: perl(DBI) >= 1.51
