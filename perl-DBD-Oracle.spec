@@ -5,7 +5,6 @@ Release: 1%{?dist}
 License:  GPL+ or Artistic
 Group: Development/Libraries
 Source0: DBD-Oracle-%{version}.tar.gz
-Source1: demo.mk
 Url: http://www.cpan.org
 BuildRoot: %{_tmppath}/perl-DBD-Oracle-buildroot/
 BuildRequires: perl >= 0:5.6.1, perl(DBI)
@@ -25,16 +24,9 @@ DBD-Oracle module for perl
 
 %setup -q -n %{modname}-%{version}
 
-cp %{SOURCE1} .
-
 %build
 
 MKFILE=$(find /usr/share/oracle/ -name demo.mk)
-%ifarch ppc ppc64
-# the included version in oracle-instantclient-devel is bad on ppc arches
-# using the version from i386 rpm
-MKFILE=demo.mk
-%endif
 %ifarch x86_64 s390x
 ORACLE_HOME=$(find /usr/lib/oracle/ -name client64 | tail -1)
 %else
