@@ -1,7 +1,7 @@
 Summary: DBD-Oracle module for perl
 Name: perl-DBD-Oracle
 Version: 1.62
-Release: 1%{?dist}
+Release: 2%{?dist}
 License:  GPL+ or Artistic
 Group: Development/Libraries
 Source0: DBD-Oracle-%{version}.tar.gz
