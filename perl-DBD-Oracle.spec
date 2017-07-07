@@ -1,7 +1,7 @@
 Summary: DBD-Oracle module for perl
 Name: perl-DBD-Oracle
 Version: 1.74
-Release: 1%{?dist}
+Release: 2%{?dist}
 License:  GPL+ or Artistic
 Group: Development/Libraries
 Source0: DBD-Oracle-%{version}.tar.gz
@@ -9,7 +9,7 @@ Url: http://www.cpan.org
 BuildRoot: %{_tmppath}/perl-DBD-Oracle-buildroot/
 BuildRequires: perl >= 0:5.6.1, perl(DBI)
 BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: oracle-instantclient12.1-devel
+BuildRequires: oracle-instantclient12.2-devel
 Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 # the version requires is not automatically picked up
 Requires: perl(DBI) >= 1.51
@@ -34,7 +34,7 @@ ORACLE_HOME=$(find /usr/lib/oracle/ -name client | sort -n | tail -1)
 %endif
 export ORACLE_HOME
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
-perl Makefile.PL -m $MKFILE INSTALLDIRS="vendor" PREFIX=%{_prefix} -V 12.1.0.1
+perl Makefile.PL -m $MKFILE INSTALLDIRS="vendor" PREFIX=%{_prefix} -V 12.2.0.1
 make  %{?_smp_mflags} OPTIMIZE="%{optflags}"
 
 %clean
@@ -53,6 +53,9 @@ rm -f `find $RPM_BUILD_ROOT -type f -name perllocal.pod -o -name .packlist`
 %{_mandir}/man3/*
 
 %changelog
+* Fri Jul 07 2017 Andreas Schiermeier 1.74-2
+- rebased to Oracle Instantclient 12.2
+
 * Mon Dec 12 2015 Thomas Equeter 1.74-1
 - New upstream version.
 
